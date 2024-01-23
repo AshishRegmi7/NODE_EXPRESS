@@ -1,6 +1,9 @@
 const router=require("express").Router();
 const bookRouter=require("./book.route");
-const userRouter=require("./user.route")
+const userRouter=require("./user.route");
+const blogsRouter=require("./blogs.routes");
+const rolesRouter=require("./roles.routes");
+const categoriesRouter=require("./categories.routes");
  //Route 1
  router.get("/", (req, res) => {
     res.json({ msg: "Hello World" });
@@ -18,6 +21,11 @@ router.use("/books",bookRouter);
 
 router.use("/users",userRouter);
 
+router.use("/blogs",blogsRouter);
+
+router.use("/roles",rolesRouter);
+
+router.use("/categories",categoriesRouter);
   
   //Route 3
   
