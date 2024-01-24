@@ -3,9 +3,10 @@ const router=require("express").Router();
 router.get("/",(req,res)=>{
     res.json("Hello From book section")
 })
- router.post("/",(req,res)=>{
+ router.post("/:id",(req,res)=>{
+       console.log(req.params);
         console.log(req.query);
-
+        console.log(req.body);
     })
 
 

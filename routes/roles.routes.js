@@ -6,7 +6,7 @@ router.get("/",(req,res)=>{
 
 router.post("/:id",(req,res)=>{
     console.log(req.body);
-    console.log(req.params.id);
+    console.log(req.params);
     console.log(req.query);
 })
 
