@@ -11,9 +11,14 @@ router.get("/",(req,res)=>{
 //     console.log({body:req.query})
 // })
 
-router.post("/:string",(req,res)=>{
-const result=encrypt(req.params.string || req.query.string || req.body.string)
-res.json({encryptedPassword:result});
+router.post("/:string",(req,res,next)=>{
+try{
+    const result=encrypt(req.params.string || req.query.string || req.body.string);
+    res.json({encryptedPassword:result});
+
+} catch(e){
+    next(e);
+}
 })
 
 module.exports=router;

@@ -5,10 +5,15 @@ router.get("/",(req,res)=>{
 
 })
 
-router.post("/:string",(req,res)=>{
+router.post("/:string",(req,res,next)=>{
+    try{
 const result=properCase(req.params.string|| req.query.string||req.body.string);
-res.json({msg: result})
 
+res.json({msg: result})
+    }
+    catch(e){
+        next(e);
+    }
 })
 
 // router.post("/:id",(req,res)=>{

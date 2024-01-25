@@ -10,9 +10,12 @@ router.get("/",(req,res)=>{
 //     console.log(req.query);
 // })
 
-router.post("/:string",(req,res)=>{
-    const result=shortener(req.params.string || req.query.string || req.body.string);
-    res.json({msg:result});
+router.post("/:string",(req,res,next)=>{
+    try{const result=shortener(req.params.string || req.query.string || req.body.string);
+    res.json({msg:result});}
+    catch(e){
+        next(e);
+    }
 })
 
 module.exports=router;
