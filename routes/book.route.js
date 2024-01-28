@@ -7,16 +7,18 @@ router.get("/",(req,res)=>{
     try{
     const data=Object.keys(req.body).length;
        if(!data) throw new Error("Body missing");
+       console.log({data:req.body});
        res.json({msg:"Update multiple properties of books"})
     }catch(e){
         next(e);
     }
     })
-    router.post("/:number",(req,res,next)=>{
-        try{ const result=numConverter(
-            req.query.number || req.body.number || req.params.number
-        );
-    res.json({msg:result});
+    router.post("/:id",(req,res,next)=>{
+        try{
+            const data=Object.keys(req.body).length;
+       if(!data) throw new Error("Body missing");
+       console.log({data:req.body});
+    res.json({msg:"Create new books"});
 }
        catch(e){
         next(e);
