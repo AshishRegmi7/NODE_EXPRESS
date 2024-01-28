@@ -5,9 +5,8 @@ router.get("/",(req,res)=>{
 })
  router.put("/:id",(req,res,next)=>{
     try{
-       const {id}=req.params;
-       const {name}=req.body;
-       if(!id || !name) throw new Error("Id or name is missing");
+    const data=Object.keys(req.body).length;
+       if(!data) throw new Error("Body missing");
        res.json({msg:"Update multiple properties of books"})
     }catch(e){
         next(e);
@@ -25,8 +24,8 @@ router.get("/",(req,res)=>{
      });
  router.patch("/:id",(req,res,next)=>{
         try{
-           const {id}=req.params;
-           if(!id) throw new Error("Id or name is missing");
+            const data=req.body;
+           if(!data) throw new Error("Body missing");
            res.json({msg:`Update single properties of books`})
         }catch(e){
             next(e);
@@ -35,8 +34,7 @@ router.get("/",(req,res)=>{
         router.delete("/:id",(req,res,next)=>{
             try{
                const {id}=req.params;
-               const {name}=req.body;
-               if(!id || !name) throw new Error("Id or name is missing");
+               if(!id) throw new Error("Idis missing");
                res.json({msg:`Delete the book`});
             }catch(e){
                 next(e);
