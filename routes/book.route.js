@@ -3,7 +3,7 @@ const {numConverter}=require("../utils/numConverter");
 router.get("/",(req,res)=>{
     res.json("Hello From book section")
 })
- router.post("/:id",(req,res,next)=>{
+ router.put("/:id",(req,res,next)=>{
     try{
        const {id}=req.params;
        const {name}=req.body;
