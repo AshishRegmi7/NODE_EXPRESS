@@ -1,12 +1,15 @@
 const router=require("express").Router();
-const {numConverter}=require("../utils/numConverter");
+// const {numConverter}=require("../utils/numConverter");
 router.get("/",(req,res)=>{
+    //Logic
+    console.log({body:req.body});
     res.json("Hello From book section")
 })
  router.put("/:id",(req,res,next)=>{
     try{
     const data=Object.keys(req.body).length;
        if(!data) throw new Error("Body missing");
+       //logic
        console.log({data:req.body});
        res.json({msg:"Update multiple properties of books"})
     }catch(e){
@@ -17,6 +20,7 @@ router.get("/",(req,res)=>{
         try{
             const data=Object.keys(req.body).length;
        if(!data) throw new Error("Body missing");
+       //Logic
        console.log({data:req.body});
     res.json({msg:"Create new books"});
 }
