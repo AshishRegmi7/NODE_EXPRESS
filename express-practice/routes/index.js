@@ -1,6 +1,8 @@
 const router=require("express").Router();
-const userRouter=require("./user");
+const blogRouter=require("../modules/blogs");
+const userRouter=require("../modules/users");
 
+router.use("/blogs",blogRouter);
 
 router.use("/users",userRouter);
 
